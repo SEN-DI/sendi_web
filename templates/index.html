@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <title>SENDI</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <p class="logo">SENDI</p>
+        </div>
+        <div class="profile-area">
+            <!-- Text -->
+            <div class="text-container">
+                <p class="tv">Choose your friend</p>
+            </div>
+            <!-- Profile card list -->
+            <div class="profile-card-list">
+                <ul>
+                    {% for profile in profiles %}
+                    <li class="profile" onclick="location.href='{{ url_for('calendar') }}';">
+                        <img class="profile-card" src="{{ profile.avatar }}" alt="{{ profile.name }}">
+                        <p class="profile-card-name">{{ profile.name }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
