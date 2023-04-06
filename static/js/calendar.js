@@ -9,7 +9,7 @@ let currentYear = currentDate.getFullYear();
 
 function drawCalendar(month, year) {
     calendarTable.innerHTML = "";
-    calendarHeader.textContent = `${month + 1}월 ${year}년`;
+    calendarHeader.textContent = `${year}.${month + 1}`;
 
     const firstDay = new Date(year, month).getDay();
     const daysInMonth = 32 - new Date(year, month, 32).getDate();

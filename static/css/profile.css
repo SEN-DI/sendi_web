@@ -9,7 +9,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000000;
+    /* background-color: #000000; */
+    background-image: url("/static/images/parchment.jpg");
 }
 
 body::before {
@@ -20,33 +21,32 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/static/images/intro_wallpaper.jpg"); /* 이미지 경로와 이름을 적어주세요. */
+    /* background-image: url("/static/images/intro_wallpaper.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.7; /* 배경화면 이미지의 불투명도 설정 (0.0 ~ 1.0 사이의 값을 사용) */
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    font-size: 58px;
-    font-weight: bold;
-    color: #ecb939;
-}
+.maruders {
+    width: 65%;
+    height: 20%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+  }
 
 .tv {
     font-size: 24px;
-    color: #FFEFD5;
+    color: #50463b;
     text-align: center;
+    margin-top: -70px;
     margin-bottom: 20px;
 }
 
 .profile-card-list {
     display: flex;
     justify-content: center;
+    margin-top: 0px;
 }
 
 .profile-card-list ul {
@@ -73,7 +73,7 @@ body::before {
 
 .profile-card-name {
     font-size: 16px;
-    color: #FFEFD5;
+    color: #50463b;
     margin-top: 10px;
 }
 
@@ -89,4 +89,15 @@ body::before {
     border: 1px solid #726255;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #946b2d;
 }
