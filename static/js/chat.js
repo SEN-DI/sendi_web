@@ -1,33 +1,25 @@
-// chat.js
-
 const chatMessages = document.querySelector(".chat-messages");
-const chatFavicons = document.querySelectorAll(".favicon img");
 const sendButton = document.getElementById("send-button");
 const messageInput = document.getElementById("message-input");
 
-const responses = [
-    "(기쁨) 기분이 좋다니 도비도 행복해요",
-    "(버럭) 누가 기분을 나쁘게 한 건가요? 도비가 마법으로 혼내줄게요!",
-    "(슬픔) 우울하시다면 도비가 집요정을 시켜 티를 타오라고 말해줄게요. ",
-    "(까칠) 도비도 말포이가 때문에 짜증이 난 적이 많았어요. 그럴 땐 해리포터가 제게 말을 걸어 준 날을 떠올렸어요.",
-    "(소심) 도비가 옆에 있어줄게요.",
-    "(빙봉) 도비도 어릴 적엔 도비를 사랑해주는 주인이 있었죠..."
-];
+// user emotion
+let currentEmotion = "Tired";
 
-chatFavicons.forEach((favicon, index) => {
-  favicon.addEventListener("click", () => {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("chat-message", "openai");
-
-    const bubble = document.createElement("div");
-    bubble.classList.add("bubble");
-    bubble.textContent = responses[index];
-
-    messageElement.appendChild(bubble);
-    chatMessages.appendChild(messageElement);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // auto scroll
+async function fetchOpenAIResponse(userMessage) {
+  const response = await fetch('/calendar', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_input: userMessage,
+      emotion: currentEmotion,
+    }),
   });
-});
+
+  const data = await response.json();
+  return data.response;
+}
 
 function addChatMessage(text, sender) {
   const messageElement = document.createElement("div");
@@ -42,18 +34,30 @@ function addChatMessage(text, sender) {
   chatMessages.scrollTop = chatMessages.scrollHeight; // auto scroll
 }
 
-sendButton.addEventListener("click", () => {
-  const userMessage = messageInput.value;
-  messageInput.value = "";
+function changeHogwartImage(imageSrc) {
+  const hogwart = document.querySelector(".hogwart");
+  hogwart.setAttribute("src", imageSrc);
+}
 
-  // 유저 메세지
+function changeEmotion(emotion) {
+  currentEmotion = emotion;
+}
+
+// emotion 선택
+async function sendMessageOnEmotionChange() {
+  const userMessage = `I'm feeling ${currentEmotion}.`;
   addChatMessage(userMessage, "user");
+  changeHogwartImage("/static/images/symbol/hogwart.png");
 
-  // OpenAI API (Flask나 python 파일로 대체)
-  // const openAIResponse = await fetchOpenAIResponse(userMessage);
+  const openAIResponse = await fetchOpenAIResponse(userMessage);
+  addChatMessage(openAIResponse, "openai");
+}
 
-  // OpenAI API response 메세지
-  // addChatMessage(openAIResponse, "openai");
+document.querySelectorAll('.favicon img').forEach((favicon) => {
+  favicon.addEventListener('click', () => {
+    changeEmotion(favicon.alt);
+    sendMessageOnEmotionChange();
+  });
 });
 
 messageInput.addEventListener("keydown", (event) => {
@@ -62,3 +66,21 @@ messageInput.addEventListener("keydown", (event) => {
     sendButton.click();
   }
 });
+
+sendButton.addEventListener("click", async () => {
+  const userMessage = messageInput.value;
+  messageInput.value = "";
+
+  addChatMessage(userMessage, "user");
+  changeHogwartImage("/static/images/symbol/hogwart.png");
+
+  const openAIResponse = await fetchOpenAIResponse(userMessage);
+  addChatMessage(openAIResponse, "openai");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  changeHogwartImage("/static/images/symbol/hogwart.png");
+});
+
+// chat이 시작되면 hide-text 클래스를 제거하여 초기화면의 텍스트를 숨김
+document.querySelector('.chat-container').classList.remove('hide-text');

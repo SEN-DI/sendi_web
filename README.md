@@ -1,2 +1,2 @@
-# sendi_web
-sendi's website source code
+# sendi_private
+private repository
