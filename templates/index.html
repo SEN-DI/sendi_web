@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="maruders">
-            <img src="/static/images/maruders.gif" alt="maruders" class="maruders">
+            <img src="/static/images/wallpaper/maruders.gif" alt="maruders" class="maruders">
         </div>
         <div class="profile-area">
             <div class="text-container">
@@ -18,17 +18,21 @@
             <div class="profile-card-list">
                 <ul>
                     {% for profile in profiles %}
-                    <li class="profile" onclick="location.href='{{ url_for('calendar') }}';">
-                        <img class="profile-card" src="{{ profile.avatar }}" alt="{{ profile.name }}">
-                        <p class="profile-card-name">{{ profile.name }}</p>
-                    </li>
+                        <li class="profile" data-id="{{ profile.id }}">
+                            <img class="profile-card" src="{{ profile.avatar }}" alt="{{ profile.name }}">
+                            <p class="profile-card-name">{{ profile.name }}</p>
+                        </li>
                     {% endfor %}
-                </ul>
+                </ul>                  
+            </div>
+            <div class="announcement">
+                <p>Potter, Roan, and Hermione are not clickable because they have not yet arrived at Horwart.</p>
             </div>
             <div class="logo-container">
                 <p class="logo">SENDI</p>
             </div>
         </div>
     </div>
+    <script src="/static/js/profile.js"></script>
 </body>
 </html>

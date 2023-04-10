@@ -8,66 +8,77 @@
 </head>
 <body>
     <div class="favicons-container">
+      <div class="describe">
+        <p>How's your day going today?</p>
+        <p>Click on the emotion that applies to you below</p>
+      </div>
+      <div class="favicons">
         <div class="favicon">
-            <img src="favicon1.png" alt="Joy" />
+          <img src="/static/images/symbol/gryffindor.png" alt="Tired" />
+          <p>Tired</p>
         </div>
         <div class="favicon">
-            <img src="favicon2.png" alt="Buzz" />
+          <img src="/static/images/symbol/hufflepuff.png" alt="Comfortable" />
+          <p>Comfortable</p>
         </div>
         <div class="favicon">
-            <img src="favicon3.png" alt="Sad" />
+          <img src="/static/images/symbol/Hogwarts-Crest.png" alt="Happiness" />
+          <p>Happiness</p>
         </div>
         <div class="favicon">
-            <img src="favicon4.png" alt="Disgust" />
+          <img src="/static/images/symbol/ravenclaw.png" alt="Sad" />
+          <p>Sad</p>
         </div>
         <div class="favicon">
-            <img src="favicon5.png" alt="Fear" />
+          <img src="/static/images/symbol/slytherin.png" alt="Angry" />
+          <p>Angry</p>
         </div>
-        <div class="favicon">
-            <img src="favicon6.png" alt="BingBong" />
-        </div>
+      </div>
     </div>
+  
     <div class="container">
-        <div class="calendar">
-            <div id="calendar">
-                <div id="calendar-header">
-                    <button id="prev-month">&lt;</button>
-                    <h3 id="month-year"></h3>
-                    <button id="next-month">&gt;</button>
-                </div>
-                <table id="calendar-table">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <img src="/static/images/castle.png" alt="castle" class="castle">
+      <div class="calendar">
+        <div id="calendar">
+          <div id="calendar-header">
+            <button id="prev-month">&lt;</button>
+            <h3 id="month-year"></h3>
+            <button id="next-month">&gt;</button>
+          </div>
+          <table id="calendar-table">
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
         </div>
-        <div class="chat">
-            <div class="chat-container">
-                <img src="/static/images/hogwart.png" alt="hogwart" class="hogwart">
-                <div class="chat-messages">
-                    
-                </div>
-                <div class="chat-input">
-                    <input type="text" id="message-input" placeholder="Enter your message">
-                    <button id="send-button">Send</button>
-                </div>
+        <img src="/static/images/wallpaper/castle.png" alt="castle" class="castle">
+      </div>
+      <div class="chat">
+        <div class="chat-container show-text">
+            <p>"Dobby could you teach me a magic spell in Harry Potter”to send a message.</p>
+            <p>Ever wonder what Dobby would say?</p>
+            <img class="hogwart" src="/static/images/symbol/hogwart.png" alt="hogwart">
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+              <input type="text" id="message-input" placeholder="Enter your message">
+              <button id="send-button">Send</button>
             </div>
-        </div>
+          </div>          
+      </div>
     </div>
-	<script src="/static/js/calendar.js"></script>
-	<script src="/static/js/chat.js"></script>
-</body>
+    <script src="/static/js/calendar.js"></script>
+    <script src="/static/js/chat.js"></script>
+  </body>
+  
 </html>
 

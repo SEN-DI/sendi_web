@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Charm&family=Tillana:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Charm&family=Gaegu&family=Tillana:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charm&family=Gaegu&family=Nanum+Myeongjo&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,39 +6,48 @@
 
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #222f5b;
-    background-image: url("/static/images/parchment.jpg");
+    background-image: url("/static/images/wallpaper/parchment.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.7; /* 배경화면 이미지의 불투명도 설정 (0.0 ~ 1.0 사이의 값을 사용) */
+    opacity: 0.7;
 }
 
 .container {
     display: flex;
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
 }
-
 
 /* Calendar */
 
 .calendar {
+    background-color: transparent;
     flex: 5;
-    margin-top: 30px;
-    margin-bottom: 60px;
-    margin-left: 60px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    padding-right: -30px;
     font-family: 'Charm', cursive;
     position: relative;
+    height: 80%;
 }
 
+.calendar .calendar-image {
+    max-width: 100%;
+    max-height: 50px;
+    display: block;
+    margin: 5px auto;
+  }
+
 #calendar {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -73,30 +81,44 @@ body::before {
     border: none; /* 달력 칸 없애기 */
 }
 
+#calendar-table td div {
+    margin-bottom: 5px;
+}
+
 #calendar-header button {
     border: none;
     background-color: transparent;
 }
 
+#calendar-table td .dateDiv {
+    position: relative;
+    margin-bottom: 5px;
+}
+
 .castle {
     position: absolute;
-    bottom: 0;
+    top: 150px;
     left: 0;
     opacity: 0.5;
-  }
+}
 
 /* Chat */
 
 .chat {
-    background-color: transparent;
-    padding: 100px;
+    margin-top: -30px;
+    margin-right: 5%;
+    padding: 10%;
+    height: 30%;
+    width: 100%;
     flex: 5;
-    font-family: 'Gaegu', cursive;
+    font-family: 'Nanum Myeongjo', serif;
+    position: relative;
+    margin-left: -60px;
 }
 
 .chat-container {
-    background-color: transparent;
     position: relative;
+    top: -100px;
     padding: 50px;
     height: 100%;
     width: 100%;
@@ -104,9 +126,17 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 1;
+    margin-left: -10%;
 }
 
-.hogwart{
+.show-text {
+    background-image: tranparent;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hogwart {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,10 +146,21 @@ body::before {
     z-index: -1;
 }
 
+.chat-container.show-text {
+    text-align: center;
+    letter-spacing: -0.05em;
+}
+
+.chat-container.show-text p {
+    margin-top: 5px;
+    margin-bottom: 0;
+}  
+
 .chat-messages {
     flex-grow: 1;
     overflow-y: auto;
     padding: 10px;
+    height: 70vh;
 }
 
 .chat-message {
@@ -140,11 +181,15 @@ body::before {
 .bubble {
     background-color: #1a472a;
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px; 
     display: inline-block;
-    max-width: 60%;
+    max-width: 70%; 
     color: white;
+    font-size: 15px;
+    text-align: left; 
+    line-height: 1.5;
 }
+
 
 .chat-message.user .bubble {
     background-color: #0e1a40;
@@ -152,36 +197,35 @@ body::before {
 }
 
 .chat-input {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #000;
-    font-family: 'Gaegu', cursive;
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #000;
+  font-family: 'Nanum Myeongjo', serif;
 }
 
 .chat-input input {
-    flex-grow: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-family: 'Gaegu', cursive;
-    font-size: 20px;
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 20px;
 }
 
 .chat-input input::placeholder {
-    color: black;
+  color: black;
 }
 
-
 .chat-input button {
-    background-color: transparent;
-    color: black;
-    border: none;
-    outline: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-family: 'Gaegu', cursive;
-    font-size: 20px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 20px;
 }
 
 
@@ -189,21 +233,39 @@ body::before {
 
 .favicons-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 10%;
-    /* background-color: #f5f5f5; */
-    /* border-bottom: 1px solid #ccc; */
-    margin-top: 60px; /* 원하는 상단 여백으로 조정하세요 */
-    font-family: 'Charm', cursive;
+}
+
+.describe {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.favicons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .favicon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 20px;
-    margin-bottom: 10px;
 }
 
 .favicon img {
-    width: 50px; /* 이미지 크기 조정 */
-    height: 50px;
+    width: 80px;
+    height: 80px;
+}
+
+.favicon p {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Charm', cursive;
 }
