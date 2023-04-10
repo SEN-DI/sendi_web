@@ -1,2 +1,18 @@
-# sendi_private
-private repository
+# 당신의 가장 가까운 친구,SENDI
+
+SENDI의 웹사이트만 구현된 소스코드입니다.
+
+SENDI는 드라마나 영화, 애니메이셔 등 콘텐츠 속 좋아하느 캐릭터와 그날의 감정을 기반으로 대화할 수 있는 서비스입니다.
+
+누구에게도 털어놓을 수 없는 고민이 있을 때 샌디를 찾는다면, 복잡한 감정과 생각을 정리하는 데 큰 도움이 될 수 있습니다.
+
+
+
+## 화면 설명
+
+샌디는 intro 화면과 calendar / chat 화면으로 구성되어있습니다.
+오늘 어떤 감정을 느꼈는지 선택하며 달력에 기록되어 무드 트래킹을 할 수 있습니다.
+
+
+<img width="991" alt="스크린샷 2023-04-10 오전 10 44 45" src="https://user-images.githubusercontent.com/99624568/230809173-21b2f474-6ba7-46b1-8ddc-ccbd9a0e40c9.png">
+<img width="1291" alt="스크린샷 2023-04-10 오전 10 44 37" src="https://user-images.githubusercontent.com/99624568/230809177-9caca15d-2fb1-4690-b481-85831903d862.png">
